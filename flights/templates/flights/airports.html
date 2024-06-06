@@ -1,0 +1,14 @@
+{% extends 'flights/layout.html'%}
+
+{% block body%}
+    <h1>Airports</h1>
+    
+    <ul>
+      {% for a in airports %}
+      <li>{{a}}</li>
+      {% empty %}
+      <li>No airport.</li>
+      {% endfor %}
+    </ul>
+
+{% endblock%}
