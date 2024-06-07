@@ -1,10 +1,18 @@
 {% extends 'flights/layout.html'%}
 
 {% block body %}
- <h1>Airport: {{airport.id}}</h1>
- <ul>
-    <li>{{airport.city}}</li>
-    <li>{{airport.code}}</li>
- </ul>
- <h2>Departures: {{}}</h2>
+ <h1>Airport: {{airport.city}} ({{airport.code}})</h1>
+ <h2>Departures</h2>
+    <ul>
+        {% for flight in departures %}
+        <li>{{ flight }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Arrivals</h2>
+    <ul>
+        {% for flight in arrivals %}
+        <li>{{ flight }}</li>
+        {% endfor %}
+    </ul>
+ 
 {% endblock %}

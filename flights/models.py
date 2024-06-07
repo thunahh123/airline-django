@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Airport(models.Model):
-    code = models.CharField(max_length=3)
+    code = models.CharField(max_length=30)
     city = models.CharField(max_length=64)
 
     #string representation

@@ -3,8 +3,8 @@
 <h1>Flight {{ flight.id}}</h1>
 
 <ul>
-  <li>Origin: {{ flight.origin }}</li>
-  <li>Destination: {{ flight.destination }}</li>
+  <li>Origin: <a href="{% url 'airportURL' flight.origin.id %}">{{ flight.origin }}</a></li>
+  <li>Destination: <a href="{% url 'airportURL' flight.destination.id %}">{{ flight.destination }}</a></li>
   <li>Duration: {{ flight.duration }}</li>
 </ul>
 

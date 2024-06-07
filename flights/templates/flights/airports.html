@@ -4,10 +4,12 @@
     <h1>Airports</h1>
     
     <ul>
-      {% for a in airports %}
-      <li>{{a}}</li>
-      {% empty %}
-      <li>No airport.</li>
+      {% for airport in airports %}
+        <li>
+          <a href="{% url 'airportURL' airport.id %}">
+            Airport {{airport.id}}: {{airport.city}}({{airport.code}})
+          </a>
+        </li>
       {% endfor %}
     </ul>
 

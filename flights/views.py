@@ -14,13 +14,24 @@ def airports(request):
         "airports" : Airport.objects.all()
     })
 
+def airportVIEW(request, airport_id):
+    airport = Airport.objects.get(pk=airport_id)
+    return  render(request, "flights/singleairport.html",{
+        "airport": airport,
+        "departures": airport.departures.all(),
+        "arrivals": airport.arrivals.all()
+    })
+
 def flight(request, flight_id):
     flight = Flight.objects.get(pk=flight_id)
     return render(request, "flights/flight.html",{
         "flight": flight,
         #passengers is the related_name
         "passengers" : flight.passengers.all(),
-        "non_passengers": Passenger.objects.exclude(flights=flight).all()
+        "non_passengers": Passenger.objects.exclude(flights=flight).all(),
+        #
+        # "origin": flight.origin,
+        # "destination": flight.destination
     })
 
 def book(request, flight_id):
